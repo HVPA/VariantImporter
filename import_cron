@@ -1,0 +1,18 @@
+# Cron script to run importer. 
+#
+# Steps to run:
+# Set the path for python 
+# Set the path for the Import.py 
+# Set the log file for cron to write the results to 
+# Current schedule is set for everyday to run at 2am
+#
+# To set cron job run command: crontab import_cron
+# To check cron is running: crontab -l
+# If you make changes to this file, make sure to reload it by running 
+# "crontab import_Cron" again so crontab is updated.
+
+PYTHON = /usr/bin/python
+IMPORT = /var/HVP/VariantImporter/Import.py
+LOG = /var/HVP/VariantImporter/Import.py.log
+
+00 2 * * * $PYTHON $IMPORT >> $LOG 2>&1
